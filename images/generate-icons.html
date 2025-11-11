@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI AI Icon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0e27;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        h1 {
+            color: #00ff88;
+            text-align: center;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .icon-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-box h3 {
+            color: #00ffff;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        canvas {
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .download-btn {
+            padding: 8px 16px;
+            background: linear-gradient(90deg, #00ff88, #00ffff);
+            color: #0a0e27;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .instructions {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .instructions h2 {
+            color: #00ff88;
+            margin-top: 0;
+        }
+
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin: 8px 0;
+        }
+
+        code {
+            background: rgba(0, 255, 136, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 BMI AI Icon Generator</h1>
+    
+    <div class="instructions">
+        <h2>📋 Instructions</h2>
+        <ol>
+            <li>The icons below are generated in 4 sizes: 16px, 48px, 128px, and 256px</li>
+            <li>Click the "Download" button under each icon to save it</li>
+            <li>Create a folder named <code>images</code> in your extension directory</li>
+            <li>Save the icons with these names:
+                <ul>
+                    <li><code>icon-16.png</code> (16x16)</li>
+                    <li><code>icon-48.png</code> (48x48)</li>
+                    <li><code>icon-128.png</code> (128x128)</li>
+                    <li><code>icon-256.png</code> (256x256)</li>
+                </ul>
+            </li>
+            <li>The manifest.json already references these icons</li>
+            <li>Reload the extension in Chrome to see the new icon</li>
+        </ol>
+    </div>
+
+    <div class="container" id="iconContainer"></div>
+
+    <script>
+        const sizes = [16, 48, 128, 256];
+
+        function drawIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#00ff88');
+            gradient.addColorStop(1, '#00ffff');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // Dark overlay for depth
+            ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
+            ctx.fillRect(0, 0, size, size);
+
+            // Draw circle background
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size * 0.45, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw "BMI" text
+            ctx.fillStyle = '#00ff88';
+            ctx.font = `bold ${Math.round(size * 0.35)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('BMI', size / 2, size / 2 - size * 0.08);
+
+            // Draw "AI" text
+            ctx.fillStyle = '#00ffff';
+            ctx.font = `bold ${Math.round(size * 0.2)}px Arial`;
+            ctx.fillText('AI', size / 2, size / 2 + size * 0.12);
+
+            // Draw decorative circle border
+            ctx.strokeStyle = 'rgba(0, 255, 136, 0.3)';
+            ctx.lineWidth = Math.max(1, size * 0.04);
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size * 0.45, 0, Math.PI * 2);
+            ctx.stroke();
+
+            return canvas;
+        }
+
+        function downloadIcon(canvas, filename) {
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        const container = document.getElementById('iconContainer');
+
+        sizes.forEach(size => {
+            const canvas = drawIcon(size);
+            
+            const box = document.createElement('div');
+            box.className = 'icon-box';
+            
+            const title = document.createElement('h3');
+            title.textContent = `${size}x${size}px`;
+            
+            const btn = document.createElement('button');
+            btn.className = 'download-btn';
+            btn.textContent = `Download icon-${size}.png`;
+            btn.onclick = () => downloadIcon(canvas, `icon-${size}.png`);
+            
+            box.appendChild(title);
+            box.appendChild(canvas.cloneNode(true));
+            box.appendChild(btn);
+            
+            container.appendChild(box);
+        });
+    </script>
+</body>
+</html>
