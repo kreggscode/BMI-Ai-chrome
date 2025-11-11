@@ -25,3 +25,15 @@ build/
 # Environment
 .env
 .env.local
+
+# Documentation files (keep only README.md)
+DEPLOYMENT.md
+FINAL_CHECKLIST.md
+ICON_INSTRUCTIONS.md
+ICON_SETUP.md
+ICON_SUMMARY.md
+PROJECT_SUMMARY.md
+QUICK_REFERENCE.md
+SETUP_GUIDE.md
+UI_REDESIGN_SUMMARY.md
+pollination ai.md

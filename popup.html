@@ -12,7 +12,6 @@
         <div class="header">
             <div class="logo-section">
                 <h1 class="title">BMI AI</h1>
-                <p class="subtitle">Powered by Pollination</p>
             </div>
             <button id="themeToggle" class="theme-toggle" title="Toggle Dark/Light Mode">
                 <span class="theme-icon">🌙</span>
@@ -29,48 +28,63 @@
 
         <!-- Calculator Tab -->
         <div id="calculator" class="tab-content active">
-            <div class="input-group">
-                <label for="height">Height (cm)</label>
-                <input type="number" id="height" placeholder="170" min="1" max="300">
-            </div>
-
-            <div class="input-group">
-                <label for="weight">Weight (kg)</label>
-                <input type="number" id="weight" placeholder="70" min="1" max="500">
-            </div>
-
-            <div class="input-group">
-                <label for="age">Age (years)</label>
-                <input type="number" id="age" placeholder="25" min="1" max="120">
-            </div>
-
-            <div class="input-group">
-                <label for="gender">Gender</label>
-                <select id="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <button id="calculateBtn" class="btn-primary">Calculate BMI</button>
-
-            <!-- BMI Result -->
-            <div id="bmiResult" class="result-box hidden">
-                <div class="bmi-value">
-                    <span class="label">Your BMI</span>
-                    <span id="bmiValue" class="value">--</span>
+            <!-- BMI Result Circle -->
+            <div id="bmiResult" class="result-circle hidden">
+                <div class="circle-container">
+                    <svg class="progress-circle" width="200" height="200">
+                        <circle class="circle-bg" cx="100" cy="100" r="85"></circle>
+                        <circle class="circle-progress" cx="100" cy="100" r="85"></circle>
+                    </svg>
+                    <div class="circle-content">
+                        <div id="bmiValueDisplay" class="bmi-value-display">--</div>
+                        <div class="bmi-label">BMI</div>
+                    </div>
                 </div>
-                <div id="bmiCategory" class="bmi-category"></div>
+                <div id="bmiCategory" class="bmi-category below-circle"></div>
+            </div>
+
+            <!-- Sliders -->
+            <div class="slider-group">
+                <div class="slider-item">
+                    <label for="height">Height: <span id="heightValue">170</span> cm</label>
+                    <input type="range" id="height" min="100" max="250" value="170" class="slider">
+                </div>
+
+                <div class="slider-item">
+                    <label for="weight">Weight: <span id="weightValue">70</span> kg</label>
+                    <input type="range" id="weight" min="30" max="200" value="70" class="slider">
+                </div>
+
+                <div class="slider-item">
+                    <label for="age">Age: <span id="ageValue">25</span> years</label>
+                    <input type="range" id="age" min="10" max="100" value="25" class="slider">
+                </div>
+
+                <div class="slider-item">
+                    <label for="gender">Gender</label>
+                    <select id="gender" class="gender-select">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="calculateBtn" class="btn-primary">Calculate BMI</button>
+                <button id="getAnalysisBtn" class="btn-secondary hidden">AI Analyze</button>
             </div>
         </div>
 
         <!-- Analysis Tab -->
         <div id="analysis" class="tab-content">
+            <div class="analysis-header">
+                <button id="backToCalculatorBtn" class="btn-secondary back-to-results-btn">← View Results</button>
+            </div>
             <div id="analysisContainer" class="analysis-container">
                 <p class="placeholder">Calculate your BMI first to get AI analysis</p>
             </div>
-            <button id="getAnalysisBtn" class="btn-primary hidden">Get AI Analysis</button>
             <div id="analysisLoading" class="loading hidden">
                 <div class="spinner"></div>
                 <p>Analyzing your BMI...</p>
@@ -91,10 +105,45 @@
 
         <!-- History Tab -->
         <div id="history" class="tab-content">
-            <div id="historyContainer" class="history-container">
-                <p class="placeholder">No history yet</p>
+            <div class="history-controls">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="graph">📊 Graph</button>
+                    <button class="view-btn" data-view="list">📋 List</button>
+                </div>
+                <button id="clearHistoryBtn" class="btn-danger hidden">Clear All</button>
             </div>
-            <button id="clearHistoryBtn" class="btn-danger hidden">Clear History</button>
+
+            <!-- Graph View -->
+            <div id="historyGraph" class="history-graph active">
+                <div class="graph-container">
+                    <canvas id="bmiChart" width="350" height="250"></canvas>
+                    <div class="graph-legend">
+                        <div class="legend-item">
+                            <span class="legend-color underweight"></span>
+                            <span>Underweight</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color normal"></span>
+                            <span>Normal</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color overweight"></span>
+                            <span>Overweight</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color obese"></span>
+                            <span>Obese</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List View -->
+            <div id="historyList" class="history-list hidden">
+                <div id="historyContainer" class="history-container">
+                    <p class="placeholder">No history yet</p>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
