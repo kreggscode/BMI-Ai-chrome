@@ -1,11 +1,11 @@
-# BMI AI - Powered by Pollination 🌸
+# BMI AI - Chrome Extension
 
-An AI-powered Chrome extension for BMI calculation, health analysis, and personalized fitness recommendations using Pollination AI.
+An AI-powered Chrome extension for BMI calculation, health analysis, and personalized fitness recommendations.
 
 ## ✨ Features
 
 - **Instant BMI Calculation** - Calculate your BMI with height, weight, age, and gender inputs
-- **AI-Powered Analysis** - Get detailed health insights powered by Pollination AI (temperature: 1 for creative responses)
+- **AI-Powered Analysis** - Get detailed health insights powered by advanced AI
 - **Chat Interface** - Ask questions about your health, fitness, and nutrition
 - **History & Logging** - Track your BMI calculations over time with detailed logs
 - **Beautiful UI** - Stunning neon glow aesthetic with dark/light mode toggle
@@ -64,9 +64,7 @@ chrome://extensions/
 - **Obese**: BMI ≥ 30
 
 ### AI Integration
-- Uses Pollination AI's text generation API
-- Temperature set to 1 for creative, personalized responses
-- No API key required (uses free tier)
+- Uses advanced AI for personalized responses
 - Supports advanced reasoning and multi-turn conversations
 
 ### Data Storage
@@ -86,44 +84,29 @@ See [Privacy Policy](docs/privacy.html) for more details.
 
 ## 📋 Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Storage**: Chrome Storage API
-- **AI**: Pollination AI (OpenAI compatible)
-- **Styling**: Custom CSS with neon glow aesthetic
+### Frontend
+- **HTML5**: Semantic markup and accessibility
+- **CSS3**: Custom properties, animations, and responsive design
+- **Vanilla JavaScript**: ES6+ features, async/await, DOM manipulation
 
-## 🌐 Landing Page
+### Backend & Storage
+- **Chrome Storage API**: Local data persistence
+- **Chrome Extension APIs**: Tabs, storage, and messaging
 
-Visit the landing page at `docs/index.html` for:
-- Feature showcase
-- Installation guide
-- How it works
-- Privacy policy
-- Terms & conditions
+### AI Integration
+- **Advanced AI**: Text generation and analysis
+- **RESTful API**: JSON communication
+- **Real-time Processing**: Instant responses
 
-## 📚 Documentation
+### Development Tools
+- **Git**: Version control and collaboration
+- **Chrome Developer Tools**: Debugging and testing
+- **Visual Studio Code**: Code editing and extensions
 
-- [Privacy Policy](docs/privacy.html)
-- [Terms & Conditions](docs/terms.html)
-- [Landing Page](docs/index.html)
-
-## 🔧 Configuration
-
-### Pollination API
-The extension uses Pollination AI's free tier. To use your own API key:
-
-1. Get a token from [auth.pollinations.ai](https://auth.pollinations.ai)
-2. Modify `popup.js` to add the Authorization header:
-```javascript
-headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_TOKEN'
-}
-```
-
-### Temperature Setting
-The temperature is set to 1 for creative responses. To adjust:
-- Edit `popup.js` and change the `TEMPERATURE` constant
-- Range: 0 (deterministic) to 3 (very creative)
+### Design & UX
+- **Custom CSS**: Neon glow aesthetic and gradients
+- **Responsive Design**: Mobile-friendly interface
+- **Dark/Light Mode**: Theme switching capability
 
 ## 🐛 Troubleshooting
 
@@ -133,7 +116,7 @@ The temperature is set to 1 for creative responses. To adjust:
 
 ### AI analysis not working
 - Check your internet connection
-- Ensure Pollination API is accessible
+- Ensure AI service is accessible
 - Check browser console for errors (F12)
 
 ### History not saving
@@ -155,7 +138,6 @@ This project is open source and available under the MIT License.
 ## 🙏 Credits
 
 - Built with ❤️ by [kreggscode](https://github.com/kreggscode)
-- Powered by [Pollination AI](https://pollinations.ai)
 - Inspired by health and wellness technology
 
 ## 📞 Support
@@ -170,4 +152,4 @@ For issues, questions, or suggestions:
 
 ---
 
-**Made with 🌸 Pollination AI** | [Visit Pollinations.AI](https://pollinations.ai)
+**Made with ❤️ for health and wellness** | [View on GitHub](https://github.com/kreggscode/BMI-Ai-chrome)

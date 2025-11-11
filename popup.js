@@ -259,7 +259,7 @@ async function sendChatMessage() {
 
     try {
         // Build context with BMI data if available
-        let systemPrompt = 'You are a helpful health and fitness AI assistant powered by Pollination AI. ';
+        let systemPrompt = 'You are a helpful health and fitness AI assistant. ';
         if (currentUserData) {
             systemPrompt += `The user has a BMI of ${currentUserData.bmi} (${currentUserData.height}cm, ${currentUserData.weight}kg). `;
         }
