@@ -12,6 +12,16 @@
     --shadow-glow: 0 0 20px rgba(0, 255, 136, 0.2);
 }
 
+/* Chrome Extension Popup Specific Styles */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 400px !important;
+    min-height: 500px !important;
+    max-height: 600px !important;
+    box-sizing: border-box !important;
+}
+
 body.light-mode {
     --primary: #00aa55;
     --secondary: #cc00cc;
@@ -30,12 +40,15 @@ body.light-mode {
 }
 
 body {
-    width: 500px;
-    min-height: 600px;
+    width: 400px;
+    min-height: 500px;
+    max-height: 600px;
     background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f3a 100%);
     color: var(--text-dark);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
 }
 
 body.light-mode {
@@ -46,8 +59,9 @@ body.light-mode {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* Header */
