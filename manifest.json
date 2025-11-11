@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "BMI AI - Powered by Pollination",
+  "name": "BMI AI Calculator",
   "version": "1.0.0",
-  "description": "AI-powered BMI calculator with intelligent analysis and chat support",
+  "description": "AI-powered BMI calculator with personalized health analysis and fitness recommendations",
   "permissions": [
     "storage"
   ],

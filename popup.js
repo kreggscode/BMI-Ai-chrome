@@ -226,22 +226,68 @@ async function getAIAnalysis() {
 - Gender: ${currentUserData.gender}
 - BMI: ${currentUserData.bmi}
 
-Please provide:
-1. Health assessment based on BMI
-2. Personalized recommendations
-3. Lifestyle tips
-4. Dietary suggestions
-5. Exercise recommendations
+Please provide a well-formatted analysis with these EXACT sections and headings:
 
-Be encouraging and supportive.`;
+## 📊 BMI Assessment
+[Brief assessment of their BMI category and health status]
+
+## 🎯 Personalized Recommendations
+[Specific, actionable recommendations based on their profile]
+
+## 🥗 Nutrition Guidelines
+[Healthy eating advice tailored to their BMI and goals]
+
+## 💪 Exercise Plan
+[Recommended physical activities and workout suggestions]
+
+## 🎯 Lifestyle Tips
+[Additional healthy habits and daily routine improvements]
+
+## 💡 Motivation
+[Encouraging words and long-term health outlook]
+
+Format with proper headings, bullet points, and clear sections. Keep it concise but comprehensive.`;
 
         const response = await callPollinationAPI(prompt);
-        analysisContainer.innerHTML = `<p>${response}</p>`;
+        // Parse markdown-style response into proper HTML
+        const formattedResponse = formatMarkdownResponse(response);
+        analysisContainer.innerHTML = formattedResponse;
     } catch (error) {
         analysisContainer.innerHTML = `<p style="color: #ff4444;">Error: ${error.message}</p>`;
     } finally {
         analysisLoading.classList.add('hidden');
     }
+}
+
+// Format markdown-style response into proper HTML
+function formatMarkdownResponse(text) {
+    let html = text;
+
+    // Convert headers
+    html = html.replace(/^## (.+)$/gm, '<h3 class="analysis-heading">$1</h3>');
+    html = html.replace(/^### (.+)$/gm, '<h4 class="analysis-subheading">$1</h4>');
+
+    // Convert bullet points
+    html = html.replace(/^- (.+)$/gm, '<li class="analysis-item">$1</li>');
+
+    // Convert numbered lists
+    html = html.replace(/^\d+\. (.+)$/gm, '<li class="analysis-item">$1</li>');
+
+    // Wrap consecutive list items
+    html = html.replace(/(<li class="analysis-item">.+?<\/li>\s*)+/gs, '<ul class="analysis-list">$&</ul>');
+
+    // Convert line breaks to paragraphs for regular text
+    html = html.replace(/\n\n/g, '</p><p>');
+    html = html.replace(/\n/g, '<br>');
+
+    // Wrap everything in a container
+    html = '<div class="analysis-content"><p>' + html + '</p></div>';
+
+    // Clean up any empty paragraphs
+    html = html.replace(/<p><\/p>/g, '');
+    html = html.replace(/<p><br><\/p>/g, '');
+
+    return html;
 }
 
 // Chat Functionality

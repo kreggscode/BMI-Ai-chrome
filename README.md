@@ -1,155 +1,154 @@
-# BMI AI - Chrome Extension
+# 🚀 BMI AI Calculator - Chrome Extension
 
-An AI-powered Chrome extension for BMI calculation, health analysis, and personalized fitness recommendations.
-
-## ✨ Features
-
-- **Instant BMI Calculation** - Calculate your BMI with height, weight, age, and gender inputs
-- **AI-Powered Analysis** - Get detailed health insights powered by advanced AI
-- **Chat Interface** - Ask questions about your health, fitness, and nutrition
-- **History & Logging** - Track your BMI calculations over time with detailed logs
-- **Beautiful UI** - Stunning neon glow aesthetic with dark/light mode toggle
-- **Privacy First** - All data stored locally on your device, no external tracking
-- **No Dependencies** - Pure vanilla JavaScript, no external libraries needed
-
-## 🚀 Installation
-
-### From Source
-
-1. Clone or download this repository:
-```bash
-git clone https://github.com/kreggscode/BMI-Ai-chrome.git
-cd BMI-Ai-chrome
-```
-
-2. Open Chrome and navigate to:
-```
-chrome://extensions/
-```
-
-3. Enable "Developer mode" (toggle in the top right corner)
-
-4. Click "Load unpacked" and select the extension folder
-
-5. The extension will appear in your Chrome toolbar!
-
-## 📖 How to Use
-
-### Calculator Tab
-1. Enter your height (cm), weight (kg), age, and gender
-2. Click "Calculate BMI"
-3. View your BMI value and category
-
-### Analysis Tab
-1. Calculate your BMI first
-2. Click "Get AI Analysis"
-3. Receive personalized health recommendations
-
-### Chat Tab
-1. Ask any questions about BMI, health, or fitness
-2. Get AI-powered responses in real-time
-3. Chat history is saved locally
-
-### History Tab
-1. View all your past BMI calculations
-2. Track changes over time
-3. Clear history anytime
-
-## 🎨 Features Breakdown
-
-### BMI Categories
-- **Underweight**: BMI < 18.5
-- **Normal Weight**: BMI 18.5 - 24.9
-- **Overweight**: BMI 25 - 29.9
-- **Obese**: BMI ≥ 30
-
-### AI Integration
-- Uses advanced AI for personalized responses
-- Supports advanced reasoning and multi-turn conversations
-
-### Data Storage
-- All BMI calculations stored locally
-- Chat history saved in Chrome storage
-- Theme preference (dark/light mode) saved
-- No data sent to external servers except for AI requests
-
-## 🔒 Privacy & Security
-
-- **Local Storage**: All personal health data stored locally on your device
-- **No Tracking**: No analytics, no user tracking
-- **No External Logging**: Your data never leaves your device (except AI requests)
-- **Open Source**: Code is transparent and auditable
-
-See [Privacy Policy](docs/privacy.html) for more details.
-
-## 📋 Tech Stack
-
-### Frontend
-- **HTML5**: Semantic markup and accessibility
-- **CSS3**: Custom properties, animations, and responsive design
-- **Vanilla JavaScript**: ES6+ features, async/await, DOM manipulation
-
-### Backend & Storage
-- **Chrome Storage API**: Local data persistence
-- **Chrome Extension APIs**: Tabs, storage, and messaging
-
-### AI Capabilities
-- **Advanced AI**: Text generation and analysis
-- **RESTful API**: JSON communication
-- **Real-time Processing**: Instant responses
-
-### Development Tools
-- **Git**: Version control and collaboration
-- **Chrome Developer Tools**: Debugging and testing
-- **Visual Studio Code**: Code editing and extensions
-
-### Design & UX
-- **Custom CSS**: Neon glow aesthetic and gradients
-- **Responsive Design**: Mobile-friendly interface
-- **Dark/Light Mode**: Theme switching capability
-
-## 🐛 Troubleshooting
-
-### Extension not showing up
-- Make sure Developer mode is enabled
-- Try refreshing the extension in `chrome://extensions/`
-
-### AI analysis not working
-- Check your internet connection
-- Ensure AI service is accessible
-- Check browser console for errors (F12)
-
-### History not saving
-- Check if Chrome storage is enabled
-- Try clearing extension data and reinstalling
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest features
-- Submit pull requests
-- Improve documentation
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🙏 Credits
-
-- Built with ❤️ by [kreggscode](https://github.com/kreggscode)
-- Inspired by health and wellness technology
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Open an issue on [GitHub](https://github.com/kreggscode/BMI-Ai-chrome/issues)
-- Check the [Landing Page](docs/index.html) for FAQs
-
-## ⚠️ Disclaimer
-
-**Important**: BMI AI is a tool for informational purposes only. It should not be considered medical advice. Always consult with a qualified healthcare professional before making any health-related decisions.
+<div align="center">
+  <img src="https://img.shields.io/badge/Chrome-Extension-blue?style=for-the-badge&logo=google-chrome" alt="Chrome Extension">
+  <img src="https://img.shields.io/badge/AI--Powered-Health-red?style=for-the-badge&logo=openai" alt="AI Powered">
+  <img src="https://img.shields.io/badge/Privacy--First-Local-green?style=for-the-badge&logo=privacy" alt="Privacy First">
+  <br>
+  <img src="https://img.shields.io/github/stars/kreggscode/BMI-Ai-chrome?style=for-the-badge" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/kreggscode/BMI-Ai-chrome?style=for-the-badge" alt="GitHub Forks">
+</div>
 
 ---
 
-**Made with ❤️ for health and wellness** | [View on GitHub](https://github.com/kreggscode/BMI-Ai-chrome)
+## 🌟 Overview
+
+**BMI AI Calculator** is a revolutionary Chrome extension that combines advanced BMI calculations with AI-powered health insights. Get personalized fitness recommendations, track your health journey, and chat with AI about wellness - all in a stunning neon glow interface!
+
+✨ **Key Highlights:**
+- 🧮 Instant BMI Calculation with age & gender factors
+- 🤖 AI-Driven Health Analysis & Recommendations
+- 💬 Interactive Chat for Health & Fitness Questions
+- 📊 History Tracking & Progress Monitoring
+- 🎨 Beautiful Neon UI with Dark/Light Mode
+- 🔒 100% Privacy - All data stored locally
+- ⚡ No Dependencies - Pure vanilla JavaScript
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+- **🌐 Frontend**: HTML5, CSS3 (Neon Glow Aesthetics), Vanilla JavaScript (ES6+)
+- **💾 Storage**: Chrome Storage API (Local Persistence)
+- **🤖 AI**: Pollination AI (Text Generation & Analysis)
+- **🔧 Extension**: Chrome Extension Manifest V3, Service Worker
+
+### Development Tools
+- **📝 Editor**: Visual Studio Code
+- **🔍 Debugging**: Chrome Developer Tools
+- **📦 Version Control**: Git & GitHub
+- **🎨 Design**: Custom CSS with Gradients & Animations
+
+---
+
+## 📥 Installation
+
+### Option 1: Chrome Web Store (Recommended)
+[<img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv.png" width="200" alt="Get it on Chrome Web Store">](https://chrome.google.com/webstore/detail/bmi-ai-calculator/[extension-id]) *(Coming Soon)*
+
+### Option 2: From Source
+1. 📥 Clone the repository:
+   ```bash
+   git clone https://github.com/kreggscode/BMI-Ai-chrome.git
+   cd BMI-Ai-chrome
+   ```
+
+2. 🔧 Load in Chrome:
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked" → Select the folder
+
+3. ✨ Extension is ready! Click the icon in your toolbar.
+
+---
+
+## 🎯 How to Use
+
+### 🧮 Calculator Tab
+1. Enter height (cm), weight (kg), age, gender
+2. Click "Calculate BMI"
+3. View instant results with category
+
+### 🔍 Analysis Tab
+1. Calculate BMI first
+2. Click "Get AI Analysis"
+3. Receive personalized health insights
+
+### 💬 Chat Tab
+1. Ask any health/fitness questions
+2. Get AI responses in real-time
+3. History saved locally
+
+### 📈 History Tab
+1. View past calculations
+2. Track progress over time
+3. Export or clear data
+
+---
+
+## 🔒 Privacy & Security
+
+- **🏠 Local Storage**: All data stays on your device
+- **🚫 No Tracking**: Zero analytics or external logging
+- **🔐 Secure**: No personal data sent except AI requests
+- **📖 Open Source**: Transparent and auditable code
+
+---
+
+## 🐛 Troubleshooting
+
+### Extension Issues
+- 🔄 Refresh in `chrome://extensions/`
+- 🌐 Check internet for AI features
+- 🛠️ Use F12 console for errors
+
+### Data Problems
+- 🗑️ Clear extension data if needed
+- 💾 Ensure Chrome storage is enabled
+
+---
+
+## 🤝 Contributing
+
+💡 Ideas? Bugs? PRs welcome!
+- 🐛 Report issues
+- ✨ Suggest features
+- 🔧 Submit pull requests
+- 📚 Improve docs
+
+---
+
+## 📄 License
+
+📜 MIT License - Free for everyone!
+
+---
+
+## 🙏 Credits
+
+Built with ❤️ by **[kreggscode](https://github.com/kreggscode)**
+
+*Inspired by the intersection of AI and personal health*
+
+---
+
+## 📞 Support
+
+❓ Questions? Issues?
+- 🐛 [Open GitHub Issue](https://github.com/kreggscode/BMI-Ai-chrome/issues)
+- 📧 Contact: [GitHub Profile](https://github.com/kreggscode)
+
+---
+
+## ⚠️ Important Disclaimer
+
+**⚕️ BMI AI is for informational purposes only.** Not medical advice. Consult healthcare professionals for health decisions.
+
+---
+
+<div align="center">
+  <strong>🌟 Made with ❤️ for your health journey 🌟</strong><br>
+  <a href="https://github.com/kreggscode/BMI-Ai-chrome">⭐ Star on GitHub</a> |
+  <a href="https://chrome.google.com/webstore/detail/bmi-ai-calculator/[extension-id]">📥 Download from Store</a>
+</div>

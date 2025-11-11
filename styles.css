@@ -327,7 +327,6 @@ body.light-mode .input-group select {
         0 0 15px #00ff88,
         0 0 20px #00ff88;
     -webkit-text-stroke: 1px #00ff88;
-    text-stroke: 1px #00ff88;
     filter: brightness(1.2);
 }
 
@@ -526,7 +525,7 @@ body.light-mode .input-group select {
 
 .bmi-category.below-circle {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 16px;
     font-weight: 600;
     padding: 8px 20px;
@@ -579,6 +578,60 @@ body.light-mode .input-group select {
 body.light-mode .analysis-container {
     background: rgba(0, 170, 85, 0.05);
     border: 1px solid rgba(0, 170, 85, 0.3);
+}
+
+/* Analysis Content Styling */
+.analysis-content {
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.analysis-content p {
+    margin-bottom: 16px;
+    color: var(--text-dark);
+}
+
+.analysis-heading {
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.analysis-subheading {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+
+.analysis-list {
+    margin: 12px 0 20px 20px;
+    padding-left: 0;
+}
+
+.analysis-item {
+    margin: 8px 0;
+    color: var(--text-dark);
+    position: relative;
+    padding-left: 8px;
+}
+
+.analysis-item:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: -12px;
+}
+
+.analysis-content br {
+    display: block;
+    margin: 8px 0;
+    content: " ";
 }
 
 .placeholder {
