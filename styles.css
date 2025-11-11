@@ -275,7 +275,8 @@ body.light-mode .input-group select {
 /* Progressive Circle BMI Result */
 .result-circle {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 20px 0;
     padding: 20px;
 }
