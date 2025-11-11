@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "description": "AI-powered BMI calculator with intelligent analysis and chat support",
   "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
+    "storage"
   ],
   "action": {
     "default_popup": "popup.html",

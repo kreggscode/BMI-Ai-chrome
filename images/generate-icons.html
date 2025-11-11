@@ -131,40 +131,61 @@
             canvas.height = size;
             const ctx = canvas.getContext('2d');
 
-            // Background gradient
-            const gradient = ctx.createLinearGradient(0, 0, size, size);
-            gradient.addColorStop(0, '#00ff88');
-            gradient.addColorStop(1, '#00ffff');
-            ctx.fillStyle = gradient;
+            // Dark background
+            ctx.fillStyle = '#0a0e27';
             ctx.fillRect(0, 0, size, size);
 
-            // Dark overlay for depth
-            ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
-            ctx.fillRect(0, 0, size, size);
-
-            // Draw circle background
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            // Radial gradient for glow effect
+            const radialGradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size * 0.6);
+            radialGradient.addColorStop(0, 'rgba(0, 255, 136, 0.4)');
+            radialGradient.addColorStop(0.5, 'rgba(0, 255, 200, 0.2)');
+            radialGradient.addColorStop(1, 'rgba(0, 255, 136, 0)');
+            ctx.fillStyle = radialGradient;
             ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size * 0.45, 0, Math.PI * 2);
+            ctx.arc(size / 2, size / 2, size * 0.5, 0, Math.PI * 2);
             ctx.fill();
 
-            // Draw "BMI" text
+            // Draw circle background - darker with gradient
+            const circleGradient = ctx.createLinearGradient(0, 0, size, size);
+            circleGradient.addColorStop(0, '#1a1f3a');
+            circleGradient.addColorStop(1, '#0f1428');
+            ctx.fillStyle = circleGradient;
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size * 0.42, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Bright neon border glow
+            ctx.strokeStyle = '#00ff88';
+            ctx.lineWidth = Math.max(2, size * 0.06);
+            ctx.shadowColor = '#00ff88';
+            ctx.shadowBlur = Math.max(5, size * 0.15);
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size * 0.42, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Draw "BMI" text - bright neon green
             ctx.fillStyle = '#00ff88';
-            ctx.font = `bold ${Math.round(size * 0.35)}px Arial`;
+            ctx.shadowColor = '#00ff88';
+            ctx.shadowBlur = Math.max(3, size * 0.1);
+            ctx.font = `bold ${Math.round(size * 0.38)}px Arial`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('BMI', size / 2, size / 2 - size * 0.08);
+            ctx.fillText('BMI', size / 2, size / 2 - size * 0.1);
 
-            // Draw "AI" text
+            // Draw "AI" text - bright cyan with glow
             ctx.fillStyle = '#00ffff';
-            ctx.font = `bold ${Math.round(size * 0.2)}px Arial`;
-            ctx.fillText('AI', size / 2, size / 2 + size * 0.12);
+            ctx.shadowColor = '#00ffff';
+            ctx.shadowBlur = Math.max(3, size * 0.1);
+            ctx.font = `bold ${Math.round(size * 0.22)}px Arial`;
+            ctx.fillText('AI', size / 2, size / 2 + size * 0.15);
 
-            // Draw decorative circle border
-            ctx.strokeStyle = 'rgba(0, 255, 136, 0.3)';
-            ctx.lineWidth = Math.max(1, size * 0.04);
+            // Inner decorative circle
+            ctx.strokeStyle = 'rgba(0, 255, 136, 0.5)';
+            ctx.lineWidth = Math.max(1, size * 0.02);
+            ctx.shadowColor = 'rgba(0, 255, 136, 0.3)';
+            ctx.shadowBlur = Math.max(2, size * 0.08);
             ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size * 0.45, 0, Math.PI * 2);
+            ctx.arc(size / 2, size / 2, size * 0.35, 0, Math.PI * 2);
             ctx.stroke();
 
             return canvas;
