@@ -93,7 +93,7 @@ See [Privacy Policy](docs/privacy.html) for more details.
 - **Chrome Storage API**: Local data persistence
 - **Chrome Extension APIs**: Tabs, storage, and messaging
 
-### AI Integration
+### AI Capabilities
 - **Advanced AI**: Text generation and analysis
 - **RESTful API**: JSON communication
 - **Real-time Processing**: Instant responses
