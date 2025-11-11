@@ -317,11 +317,18 @@ body.light-mode .input-group select {
 }
 
 .bmi-value-display {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
-    color: var(--primary);
+    color: #ffffff;
     margin-bottom: 5px;
-    text-shadow: 0 0 10px var(--primary);
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 15px #00ff88,
+        0 0 20px #00ff88;
+    -webkit-text-stroke: 1px #00ff88;
+    text-stroke: 1px #00ff88;
+    filter: brightness(1.2);
 }
 
 .bmi-label {
