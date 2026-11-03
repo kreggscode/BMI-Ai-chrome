@@ -340,7 +340,7 @@ function addChatMessage(content, role) {
 // Pollination API Call
 async function callPollinationAPI(prompt, messages = null) {
     const payload = {
-        model: 'openai',
+        model: 'openai/gpt-5.4-nano',
         temperature: TEMPERATURE,
         messages: messages || [
             { role: 'user', content: prompt }
